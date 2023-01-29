@@ -23,13 +23,6 @@ public class LiveJournalTestFormPasswordRecoveryShowInputNewEmail extends Abstra
         driverSetup();
         openPage(host);
 
-        WebElement buttonAuthorization;
-        WebElement linkPasswordForgot;
-        WebElement radioChooseLostInfo;
-        WebElement buttonSubmitChooseLostInfo;
-        WebElement checkBoxCurrentEmail;
-        WebElement inputAlternativeEmail;
-
         // Открытие формы авторизации
         try
         {
