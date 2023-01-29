@@ -1,20 +1,13 @@
 package org.example.lesson_03;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.chrome.ChromeDriver;
-
 import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeOptions;
-
-import java.util.concurrent.TimeUnit;
 
 /**
  * Проверка функционала сайта Live Journal
  * Тест формы восстановления пароля. Отображение поля для ввода дополнительго email
  */
-public class LiveJournalTestFormPasswordRecoveryShowInputNewEmail
+public class LiveJournalTestFormPasswordRecoveryShowInputNewEmail extends AbstractLiveJournalTest
 {
-    private static ChromeDriver driver;
     private static String host = "https://www.livejournal.com/";
 
     // Селекторы
@@ -22,15 +15,13 @@ public class LiveJournalTestFormPasswordRecoveryShowInputNewEmail
     private static String selectorLinkPasswordForgot = "form.b-loginform__form a.b-loginform__link[title=\"Забыли пароль?\"]";
     private static String selectorRadioChooseLostInfo = "label[for=\"lostpassword\"]";
     private static String selectorButtonSubmitChooseLostInfo = "input[name=\"next\"]";
-    private static String selectorCheckBoxCurrentEmail = "input#current_email[type=\"checkbox\"]";
+    private static String selectorCheckBoxCurrentEmail = "#current_email";
     private static String selectorInputAlternativeEmail = "#email_p";
 
     public static void main(String[] args)
     {
         driverSetup();
-
-        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-        driver.get(host);
+        openPage(host);
 
         WebElement buttonAuthorization;
         WebElement linkPasswordForgot;
@@ -49,7 +40,7 @@ public class LiveJournalTestFormPasswordRecoveryShowInputNewEmail
             driverQuit();
         }
 
-         // Пеерход на страницу выбора сценария восстановления данных
+         // Пеерход на страницу выбора сценария восстановления данных кликом по ссылке "Забыли пароль"
          try {
             linkPasswordForgot = driver.findElement(By.cssSelector(selectorLinkPasswordForgot));
             linkPasswordForgot.click();
@@ -87,29 +78,4 @@ public class LiveJournalTestFormPasswordRecoveryShowInputNewEmail
         driverQuit();
         System.out.println("Тест \"Отображение поля для ввода дополнительго email\" пройден успешно");
     }
-
-
-    /**
-     * Установка драйвера
-     */
-    public static void driverSetup ()
-    {
-        WebDriverManager.chromedriver().setup();
-
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--incognito");
-        options.addArguments("start-maximized");
-
-        driver = new ChromeDriver(options);
-    }
-
-
-    /**
-     * Закрытие браузера
-     */
-    public static void driverQuit()
-    {
-        driver.quit();
-    }
-
 }
