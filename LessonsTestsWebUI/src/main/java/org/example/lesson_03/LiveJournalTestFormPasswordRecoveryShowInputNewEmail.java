@@ -33,8 +33,7 @@ public class LiveJournalTestFormPasswordRecoveryShowInputNewEmail extends Abstra
         // Открытие формы авторизации
         try
         {
-            buttonAuthorization = driver.findElement(By.cssSelector(selectorButtonAuthorization));
-            buttonAuthorization.click();
+            click(selectorButtonAuthorization);
         }
         catch (NoSuchElementException e)
         {
@@ -46,8 +45,7 @@ public class LiveJournalTestFormPasswordRecoveryShowInputNewEmail extends Abstra
         // Пеерход на страницу выбора сценария восстановления данных кликом по ссылке "Забыли пароль"
         try
         {
-            linkPasswordForgot = driver.findElement(By.cssSelector(selectorLinkPasswordForgot));
-            linkPasswordForgot.click();
+            click(selectorLinkPasswordForgot);
         }
         catch (NoSuchElementException e)
         {
@@ -59,11 +57,8 @@ public class LiveJournalTestFormPasswordRecoveryShowInputNewEmail extends Abstra
         // Выбор сценария восстановления пароля
         try
         {
-            radioChooseLostInfo = driver.findElement(By.cssSelector(selectorRadioChooseLostInfo));
-            buttonSubmitChooseLostInfo = driver.findElement(By.cssSelector(selectorButtonSubmitChooseLostInfo));
-
-            radioChooseLostInfo.click();
-            buttonSubmitChooseLostInfo.click();
+            click(selectorRadioChooseLostInfo);
+            click(selectorButtonSubmitChooseLostInfo);
         }
         catch (NoSuchElementException e)
         {
@@ -75,11 +70,8 @@ public class LiveJournalTestFormPasswordRecoveryShowInputNewEmail extends Abstra
         // Отображение поля для ввода дополнительго email
         try
         {
-            checkBoxCurrentEmail = driver.findElement(By.cssSelector(selectorCheckBoxCurrentEmail));
-            checkBoxCurrentEmail.click();
-
-            inputAlternativeEmail = driver.findElement(By.cssSelector(selectorInputAlternativeEmail));
-            inputAlternativeEmail.click();
+            click(selectorCheckBoxCurrentEmail);
+            click(selectorInputAlternativeEmail);
         }
         catch (NoSuchElementException e)
         {
