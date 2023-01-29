@@ -94,6 +94,17 @@ public abstract class AbstractLiveJournalTest
 
 
     /**
+     * Получет элемент по переданному селектору
+     */
+    public static WebElement findElementByCssClass(String cssSelector) throws NoSuchElementException
+    {
+        WebElement element = driver.findElement(By.cssSelector(cssSelector));
+
+        return element;
+    }
+
+
+    /**
      * Закрытие браузера
      */
     public static void driverQuit()
