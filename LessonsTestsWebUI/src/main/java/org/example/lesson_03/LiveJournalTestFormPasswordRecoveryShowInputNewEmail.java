@@ -31,46 +31,58 @@ public class LiveJournalTestFormPasswordRecoveryShowInputNewEmail extends Abstra
         WebElement inputAlternativeEmail;
 
         // Открытие формы авторизации
-         try {
+        try
+        {
             buttonAuthorization = driver.findElement(By.cssSelector(selectorButtonAuthorization));
             buttonAuthorization.click();
-        } catch (NoSuchElementException e){
+        }
+        catch (NoSuchElementException e)
+        {
             System.out.println(e.getSupportUrl());
             System.out.println(e);
             driverQuit();
         }
 
-         // Пеерход на страницу выбора сценария восстановления данных кликом по ссылке "Забыли пароль"
-         try {
+        // Пеерход на страницу выбора сценария восстановления данных кликом по ссылке "Забыли пароль"
+        try
+        {
             linkPasswordForgot = driver.findElement(By.cssSelector(selectorLinkPasswordForgot));
             linkPasswordForgot.click();
-        } catch (NoSuchElementException e){
+        }
+        catch (NoSuchElementException e)
+        {
             System.out.println(e);
             System.out.println(e.getSupportUrl());
             driverQuit();
         }
 
         // Выбор сценария восстановления пароля
-        try {
+        try
+        {
             radioChooseLostInfo = driver.findElement(By.cssSelector(selectorRadioChooseLostInfo));
             buttonSubmitChooseLostInfo = driver.findElement(By.cssSelector(selectorButtonSubmitChooseLostInfo));
 
             radioChooseLostInfo.click();
             buttonSubmitChooseLostInfo.click();
-        } catch (NoSuchElementException e){
+        }
+        catch (NoSuchElementException e)
+        {
             System.out.println(e);
             System.out.println(e.getSupportUrl());
             driverQuit();
         }
 
         // Отображение поля для ввода дополнительго email
-        try {
+        try
+        {
             checkBoxCurrentEmail = driver.findElement(By.cssSelector(selectorCheckBoxCurrentEmail));
             checkBoxCurrentEmail.click();
 
             inputAlternativeEmail = driver.findElement(By.cssSelector(selectorInputAlternativeEmail));
             inputAlternativeEmail.click();
-        } catch (NoSuchElementException e){
+        }
+        catch (NoSuchElementException e)
+        {
             System.out.println(e);
             System.out.println(e.getSupportUrl());
         }
