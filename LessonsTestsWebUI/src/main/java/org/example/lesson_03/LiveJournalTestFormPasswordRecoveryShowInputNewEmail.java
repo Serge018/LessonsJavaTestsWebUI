@@ -3,7 +3,6 @@ package org.example.lesson_03;
 import org.openqa.selenium.*;
 
 /**
- * Проверка функционала сайта Live Journal
  * Тест формы восстановления пароля. Отображение поля для ввода дополнительго email
  */
 public class LiveJournalTestFormPasswordRecoveryShowInputNewEmail extends AbstractLiveJournalTest

@@ -3,7 +3,7 @@ package org.example.lesson_03;
 import org.openqa.selenium.*;
 
 /**
- * Тест смены категорий клоком на управляюще элементы навигационной панели
+ * Тест смены категорий кликом на управляюще элементы навигационной панели
  */
 public class LiveJournalTestCategoryChangeBySelectNavPanel extends AbstractLiveJournalTest
 {
