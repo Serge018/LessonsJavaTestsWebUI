@@ -20,6 +20,10 @@ public class Triangle
          // Расчёт площади треугольника
          double semiPerimeter = (a + b + c) / 2;
          double area = Math.sqrt(semiPerimeter * (semiPerimeter - a) * (semiPerimeter - b) * (semiPerimeter - c));
+         if (Double.isNaN(area))
+         {
+             throw new GeometryException("Такого треугольника не существует");
+         }
 
          // Для простоты проверки результат приводим к целочисленному значению
          int result = (int) Math.round(area);
