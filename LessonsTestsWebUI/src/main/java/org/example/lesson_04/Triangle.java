@@ -8,7 +8,7 @@ public class Triangle
     /**
     * Функция расчёта площади треугольника по длине сторон
     */
-     static public int calculateArea(int a, int b, int c) throws GeometryException
+     static public int calculateAreaBySidesLength(int a, int b, int c) throws GeometryException
      {
          // Проверка переданных значений
          boolean isAvailableTriangleSidesValues = (a > 0) && (b > 0) && (c > 0);
