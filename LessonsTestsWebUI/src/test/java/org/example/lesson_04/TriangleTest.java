@@ -3,15 +3,26 @@ package org.example.lesson_04;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Тесты класса Triangle
  */
 public class TriangleTest
 {
+    static Logger logger = LoggerFactory.getLogger(TriangleTest.class);
+
+    @BeforeAll()
+    void logStartTriangleTests()
+    {
+        logger.info("Запуск тестов класса Triangle");
+    }
+
     @DisplayName("Простая проверка расчёта площади треугольника по длине сторон")
     @ParameterizedTest
     @CsvSource({ "3, 4, 5, 6", "54, 32, 75, 707"})
