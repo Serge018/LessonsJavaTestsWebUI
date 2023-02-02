@@ -17,8 +17,8 @@ public class TriangleTest
 {
     static Logger logger = LoggerFactory.getLogger(TriangleTest.class);
 
-    @BeforeAll()
-    void logStartTriangleTests()
+    @BeforeAll
+    static void logStartTriangleTests()
     {
         logger.info("Запуск тестов класса Triangle");
     }
