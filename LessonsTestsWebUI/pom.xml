@@ -17,6 +17,7 @@
     <selenium.version>4.0.0</selenium.version>
     <webdrivermanager.version>5.0.3</webdrivermanager.version>
     <junit.version>5.6.2</junit.version>
+    <aspectj.version>1.8.10</aspectj.version>
   </properties>
 
   <dependencies>
@@ -71,6 +72,12 @@
       <artifactId>slf4j-simple</artifactId>
       <version>1.7.12</version>
     </dependency>
+    <dependency>
+      <groupId>io.qameta.allure</groupId>
+      <artifactId>allure-junit5</artifactId>
+      <version>2.21.0</version>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
 
   <build>
@@ -95,6 +102,43 @@
         <artifactId>maven-surefire-report-plugin</artifactId>
         <version>3.0.0-M5</version>
       </plugin>
+
+      <plugin>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>2.21.0</version>
+        <configuration>
+          <testFailureIgnore>false</testFailureIgnore>
+          <argLine>
+            -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+          </argLine>
+          <systemProperties>
+            <property>
+              <name>junit.jupiter.extensions.autodetection.enabled</name>
+              <value>true</value>
+            </property>
+          </systemProperties>
+        </configuration>
+        <dependencies>
+          <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-surefire-provider</artifactId>
+            <version>1.2.0</version>
+          </dependency>
+          <dependency>
+          <groupId>org.aspectj</groupId>
+          <artifactId>aspectjweaver</artifactId>
+          <version>${aspectj.version}</version>
+          </dependency>
+        </dependencies>
+      </plugin>
+        <plugin>
+          <groupId>io.qameta.allure</groupId>
+          <artifactId>allure-maven</artifactId>
+          <version>2.12.0</version>
+          <configuration>
+            <reportVersion>2.4.1</reportVersion>
+          </configuration>
+        </plugin>
     </plugins>
   </build>
 </project>
