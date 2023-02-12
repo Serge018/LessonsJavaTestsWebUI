@@ -1,11 +1,17 @@
 package org.example.lesson_06;
 
+import io.qameta.allure.*;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+@Story("Тесты главной страницы сайта")
 public class TestLiveJournalMain extends AbstractTest
 {
     @Test
+    @DisplayName("Переход по категориям сайта с помощью главной навигационной панели")
+    @Link("http://google.com")
+    @Severity(SeverityLevel.NORMAL)
     void navigationNavPanel()
     {
         PageLiveJournalMain pageLiveJournalMain = new PageLiveJournalMain(getWebDriver());
@@ -21,6 +27,9 @@ public class TestLiveJournalMain extends AbstractTest
 
 
     @Test
+    @DisplayName("Проверка поиска в категориях с помощью главной поисковой строки")
+    @Link("http://google.com")
+    @Severity(SeverityLevel.NORMAL)
     void searchByCategory()
     {
         PageLiveJournalMain pageLiveJournalMain = new PageLiveJournalMain(getWebDriver());
@@ -34,6 +43,9 @@ public class TestLiveJournalMain extends AbstractTest
 
 
     @Test
+    @DisplayName("Переключение языка на английский")
+    @Link("http://google.com")
+    @Severity(SeverityLevel.NORMAL)
     void chooseLangEnglish() throws InterruptedException {
         PageLiveJournalMain pageLiveJournalMain = new PageLiveJournalMain(getWebDriver());
         pageLiveJournalMain.chooseLangEnglish();
