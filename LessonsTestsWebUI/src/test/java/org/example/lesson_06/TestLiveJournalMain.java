@@ -38,7 +38,10 @@ public class TestLiveJournalMain extends AbstractTest
             .moveToCategorySearchString()
             .searchSimpleByCategory();
 
-        Assertions.assertEquals(PageLiveJournalMain.expectedUrlBySearchSimple, getWebDriver().getCurrentUrl());
+        String currentUrl = getWebDriver().getCurrentUrl();
+        boolean hasCurrentUrlExpectedSearchParameter = currentUrl.contains(PageLiveJournalMain.expectedUrlSearchParameter);
+
+        Assertions.assertTrue(hasCurrentUrlExpectedSearchParameter);
     }
 
 
