@@ -12,7 +12,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-@Story("Восстановление данных пользоватедя")
+@Story("Восстановление данных пользоватедя на сайте www.livejournal.com")
 public class TestLiveJournalFormRecoveryUserData extends AbstractTest
 {
     @Test

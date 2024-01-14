@@ -1,5 +1,6 @@
 package org.example.lesson_04;
 
+import io.qameta.allure.Story;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.DisplayName;
@@ -13,6 +14,7 @@ import org.slf4j.LoggerFactory;
 /**
  * Тесты класса Triangle
  */
+@Story("Вспомогательные функции расчёта площади треугольника")
 public class TriangleTest
 {
     static Logger logger = LoggerFactory.getLogger(TriangleTest.class);

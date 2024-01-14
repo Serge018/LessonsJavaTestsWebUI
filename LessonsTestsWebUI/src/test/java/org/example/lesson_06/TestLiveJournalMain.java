@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-@Story("Тесты главной страницы сайта")
+@Story("Тесты главной страницы сайта www.livejournal.com")
 public class TestLiveJournalMain extends AbstractTest
 {
     @Test
