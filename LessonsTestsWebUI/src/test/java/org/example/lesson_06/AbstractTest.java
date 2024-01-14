@@ -5,11 +5,16 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.AfterEach;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.logging.LogEntries;
+import org.openqa.selenium.logging.LogEntry;
+import org.openqa.selenium.logging.LogType;
 
 import java.time.Duration;
+import java.util.List;
 
 public class AbstractTest
 {
@@ -49,6 +54,20 @@ public class AbstractTest
         if(webDriver != null)
         {
             webDriver.quit();
+        }
+    }
+
+    @AfterEach
+    public void tearDown()
+    {
+        // Вывод всех ошибок браузера после каждого теста
+        LogEntries browserLogs = webDriver.manage().logs().get(LogType.BROWSER);
+        List<LogEntry> allLogRows = browserLogs.getAll();
+        if (allLogRows.size() > 0 )
+        {
+            allLogRows.forEach(logEntry -> {
+                System.out.println(logEntry.getMessage());
+            });
         }
     }
 
