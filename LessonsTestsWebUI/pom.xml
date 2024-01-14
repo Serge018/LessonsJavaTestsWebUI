@@ -16,10 +16,23 @@
     <maven.compiler.target>11</maven.compiler.target>
     <selenium.version>4.16.1</selenium.version>
     <webdrivermanager.version>5.5.2</webdrivermanager.version>
-    <junit.version>5.6.2</junit.version>
-    <aspectj.version>1.8.10</aspectj.version>
+    <junit.version>5.7.0</junit.version>
+    <aspectj.version>1.9.20.1</aspectj.version>
+    <allure.version>2.24.0</allure.version>
 <!--    <project.build.directory>/home/sergey/workspace/LessonsJavaTestsWebUI/LessonsTestsWebUI</project.build.directory>-->
   </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>io.qameta.allure</groupId>
+        <artifactId>allure-bom</artifactId>
+        <version>${allure.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
 
   <dependencies>
     <dependency>
@@ -76,7 +89,6 @@
     <dependency>
       <groupId>io.qameta.allure</groupId>
       <artifactId>allure-junit5</artifactId>
-      <version>2.21.0</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
@@ -112,41 +124,31 @@
       </plugin>
 
       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
-        <version>2.21.0</version>
+        <version>3.1.2</version>
         <configuration>
-          <testFailureIgnore>false</testFailureIgnore>
           <argLine>
             -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
           </argLine>
-          <systemProperties>
-            <property>
-              <name>junit.jupiter.extensions.autodetection.enabled</name>
-              <value>true</value>
-            </property>
-          </systemProperties>
         </configuration>
         <dependencies>
           <dependency>
-            <groupId>org.junit.platform</groupId>
-            <artifactId>junit-platform-surefire-provider</artifactId>
-            <version>1.2.0</version>
-          </dependency>
-          <dependency>
-          <groupId>org.aspectj</groupId>
-          <artifactId>aspectjweaver</artifactId>
-          <version>${aspectj.version}</version>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>${aspectj.version}</version>
           </dependency>
         </dependencies>
       </plugin>
-        <plugin>
-          <groupId>io.qameta.allure</groupId>
-          <artifactId>allure-maven</artifactId>
-          <version>2.10.0</version>
-          <configuration>
-            <reportVersion>2.14.0</reportVersion>
-          </configuration>
-        </plugin>
+
+      <plugin>
+        <groupId>io.qameta.allure</groupId>
+        <artifactId>allure-maven</artifactId>
+        <version>2.10.0</version>
+        <configuration>
+          <reportVersion>${allure.version}</reportVersion>
+        </configuration>
+      </plugin>
     </plugins>
   </build>
 </project>
