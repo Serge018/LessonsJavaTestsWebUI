@@ -28,7 +28,7 @@ public class PageLiveJournalFormRecoveryUserData extends AbstractPage
     @FindBy(css = ".s-header-item__link--login")
     private static WebElement buttonCallFormAuthorization;
 
-    @FindBy(css = "form.b-loginform__form a.b-loginform__link[title=\"Забыли пароль?\"]")
+    @FindBy(css = "form.b-loginform__form a.b-loginform__link[href=\"https://www.livejournal.com/lostinfo.bml\"]")
     private static WebElement linkPasswordForgot;
 
     private static String selectorInputEmail = "#email_u";
