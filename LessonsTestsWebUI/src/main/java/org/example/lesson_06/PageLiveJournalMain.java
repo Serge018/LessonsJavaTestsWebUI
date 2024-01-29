@@ -44,6 +44,7 @@ public class PageLiveJournalMain extends AbstractPage
     public static String expectedUrlCategoryFilms = "https://www.livejournal.com/category/kino/";
     public static String expectedUrlCategoryTravels = "https://www.livejournal.com/category/puteshestviya/";
     public static String expectedUrlBySearchSimple = "https://www.livejournal.com/rsearch?q=%D1%88%D0%BA%D0%B0%D1%84%D1%8B&sort=_score&searchArea=post";
+    public static String expectedUrlSearchParameter = "q=%D1%88%D0%BA%D0%B0%D1%84%D1%8B";
     private static String searchValue = "шкафы";
 
 

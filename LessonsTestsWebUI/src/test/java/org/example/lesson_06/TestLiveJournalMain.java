@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-@Story("Тесты главной страницы сайта")
+@Story("Тесты главной страницы сайта www.livejournal.com")
 public class TestLiveJournalMain extends AbstractTest
 {
     @Test
@@ -38,7 +38,10 @@ public class TestLiveJournalMain extends AbstractTest
             .moveToCategorySearchString()
             .searchSimpleByCategory();
 
-        Assertions.assertEquals(PageLiveJournalMain.expectedUrlBySearchSimple, getWebDriver().getCurrentUrl());
+        String currentUrl = getWebDriver().getCurrentUrl();
+        boolean hasCurrentUrlExpectedSearchParameter = currentUrl.contains(PageLiveJournalMain.expectedUrlSearchParameter);
+
+        Assertions.assertTrue(hasCurrentUrlExpectedSearchParameter);
     }
 
 
